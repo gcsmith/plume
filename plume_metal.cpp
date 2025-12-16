@@ -2552,7 +2552,7 @@ namespace plume {
         assert(range.binding < MAX_PUSH_CONSTANT_BINDINGS && "Push constants out of range");
 
         pushConstants.resize(activeComputePipelineLayout->pushConstantRanges.size());
-        pushConstants[rangeIndex].data.resize(range.size);
+        pushConstants[rangeIndex].data.resize(alignUp(range.size));
         memcpy(pushConstants[rangeIndex].data.data() + offset, data, size == 0 ? range.size : size);
         pushConstants[rangeIndex].binding = range.binding;
         pushConstants[rangeIndex].set = range.set;
@@ -2606,7 +2606,7 @@ namespace plume {
         assert(range.binding < MAX_PUSH_CONSTANT_BINDINGS && "Push constants out of range");
 
         pushConstants.resize(activeGraphicsPipelineLayout->pushConstantRanges.size());
-        pushConstants[rangeIndex].data.resize(range.size);
+        pushConstants[rangeIndex].data.resize(alignUp(range.size));
         memcpy(pushConstants[rangeIndex].data.data() + offset, data, size == 0 ? range.size : size);
         pushConstants[rangeIndex].binding = range.binding;
         pushConstants[rangeIndex].set = range.set;
