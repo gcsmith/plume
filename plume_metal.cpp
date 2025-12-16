@@ -2030,6 +2030,7 @@ namespace plume {
     }
 
     RenderTexture *MetalSwapChain::getTexture(const uint32_t textureIndex) {
+        assert(textureIndex < drawables.size());
         return &drawables[textureIndex];
     }
 
@@ -2400,7 +2401,7 @@ namespace plume {
 
         for (int i = 0; i < textureBarriersCount; i++) {
             const RenderTextureBarrier &textureBarrier = textureBarriers[i];
-            MetalTexture *interfaceTexture = static_cast<MetalTexture *>(textureBarrier.texture);
+            ExtendedRenderTexture *interfaceTexture = static_cast<MetalTexture *>(textureBarrier.texture);
 
             srcStageMask |= toStageMask(interfaceTexture->barrierStages);
             interfaceTexture->barrierStages = stages;
