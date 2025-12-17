@@ -2401,7 +2401,7 @@ namespace plume {
 
         for (int i = 0; i < textureBarriersCount; i++) {
             const RenderTextureBarrier &textureBarrier = textureBarriers[i];
-            ExtendedRenderTexture *interfaceTexture = static_cast<MetalTexture *>(textureBarrier.texture);
+            ExtendedRenderTexture *interfaceTexture = static_cast<ExtendedRenderTexture *>(textureBarrier.texture);
 
             srcStageMask |= toStageMask(interfaceTexture->barrierStages);
             interfaceTexture->barrierStages = stages;
