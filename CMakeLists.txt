@@ -4,7 +4,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 if(APPLE AND NOT CMAKE_OSX_DEPLOYMENT_TARGET)
     # 10.15 because of our use of supportsFamily()
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum macOS deployment target")
+    set(CMAKE_OSX_DEPLOYMENT_TARGET "14.0" CACHE STRING "Minimum macOS deployment target")
 endif()
 
 project(plume)
